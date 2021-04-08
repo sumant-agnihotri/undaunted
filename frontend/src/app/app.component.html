@@ -1,17 +1,15 @@
 <div>
-  <nav class="navbar navbar-expand navbar-dark bg-dark">
-    <a href="#" class="navbar-brand">bezKoder</a>
-    <div class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a routerLink="tutorials" class="nav-link">Tutorials</a>
-      </li>
-      <li class="nav-item">
-        <a routerLink="add" class="nav-link">Add</a>
-      </li>
+  <nav class="flex-container nav">
+    <div id="logo1-div" class="div-contain">
+      <img class="img-contain" src="/assets/images/logo1.png" alt="" />
+    </div>
+    <div id="nav-div">
+      <ul class="nav-ul">
+        <li><a href="default.asp">Home</a></li>
+        <li><a href="news.asp">News</a></li>
+        <li><a href="contact.asp">Contact</a></li>
+        <li><a href="about.asp">About</a></li>
+      </ul>
     </div>
   </nav>
-
-  <div class="container mt-3">
-    <router-outlet></router-outlet>
-  </div>
 </div>
