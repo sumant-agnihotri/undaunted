@@ -1,15 +1,22 @@
 <div>
-  <nav class="flex-container nav">
-    <div id="logo1-div" class="div-contain">
-      <img class="img-contain" src="/assets/images/logo1.png" alt="" />
-    </div>
-    <div id="nav-div">
-      <ul class="nav-ul">
-        <li><a href="/home">Home</a></li>
-        <li><a href="/judge">Judge</a></li>
-        <li><a href="contact.asp">Contact</a></li>
-        <li><a href="about.asp">About</a></li>
-      </ul>
-    </div>
-  </nav>
+  <div class="nav-div">
+    <nav class="flex-container nav">
+      <div id="logo1-div" class="div-contain">
+        <img class="img-contain" src="/assets/images/logo1.png" alt="" />
+      </div>
+      <div id="ul-div">
+        <ul class="nav-ul">
+          <li><a [routerLink]="['home']">Home</a></li>
+          <li><a [routerLink]="['judge']">Judge</a></li>
+          <li><a href="contact.asp">Contact</a></li>
+          <li><a href="about.asp">About</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <div class="main-body">
+    <router-outlet></router-outlet>
+
+
+  </div>
 </div>
