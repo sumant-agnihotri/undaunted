@@ -1,23 +1,36 @@
-.blue-button{
-    color: #fff;
-    background-color: #0095ff;
-    box-shadow: inset 0 1px 0 0 rgb(255 255 255 / 40%);
-    display: inline-block;
-    padding: .8em;
-    border: 1px solid transparent;
-    border-radius: 3px;
-    outline: none;
-    font-size: 13px;
-    font-weight: normal;
-    line-height: 1.15384615;
-    text-align: center;
-    cursor: pointer;
-    border-style: solid;
-    border-color: black;
+h3 {
+  color: #cecfc0;
 }
 
-.blue-button:hover{
-    background-color: #0077cc;
+.modal-body {
+  display: flex;
+  justify-content: center;
+}
+
+.hover {
+  cursor: pointer;
+}
+
+.blue-button {
+  color: #fff;
+  background-color: #0095ff;
+  box-shadow: inset 0 1px 0 0 rgb(255 255 255 / 40%);
+  display: inline-block;
+  padding: 0.8em;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  outline: none;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 1.15384615;
+  text-align: center;
+  cursor: pointer;
+  border-style: solid;
+  border-color: black;
+}
+
+.blue-button:hover {
+  background-color: #0077cc;
 }
 
 .img-col {
@@ -44,4 +57,9 @@
   display: flex;
   margin: 5px;
   padding: 5px;
+}
+
+hr.rounded {
+  border-top: 4px solid #bbb;
+  border-radius: 5px;
 }
