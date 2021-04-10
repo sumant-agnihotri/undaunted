@@ -2,7 +2,23 @@ h3 {
   color: #cecfc0;
 }
 
+.rating-div {
+  display: flex;
+}
+
+.rate-line {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.rating-number {
+  margin-right: 10px;
+  margin-top: 3px;
+}
+
 .modal-body {
+  flex-direction: column;
   display: flex;
   justify-content: center;
 }
