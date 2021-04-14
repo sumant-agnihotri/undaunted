@@ -23,24 +23,20 @@
       simply post screenshot(s) of your character to
       <a target="_blank" href="https://discord.gg/undauntedinsomniacs"
         >#class-contest-submissions</a
-      >. Entries close 11:59pm PDT on April 16th, and the winners will be
-      announced on April 17th!
+      >. Entries close
+      <strong class="text-red">11:59pm PDT on April 16th</strong>, and the
+      winners will be announced on April 17th!
     </p>
   </div>
-  <div style="display: flex; justify-content: center">
+  <div #loginDiv class="login-parent">
     <div class="login-div">
       <section class="login-section">
         <h2 class="login-head">Login As Judge</h2>
         <!-- <p class="valid">Valid. Please wait a moment.</p>
       <p class="error">Error. Please enter correct Username &amp; password.</p> -->
         <form class="loginbox" autocomplete="off">
-          <input placeholder="Username" type="text" #username id="username" />
-          <input
-            placeholder="Password"
-            type="password"
-            #password
-            id="password"
-          />
+          <input placeholder="Username" type="text" #username />
+          <input placeholder="Password" type="password" #password />
           <button
             id="login-submit"
             (click)="login(username.value, password.value)"
@@ -50,5 +46,18 @@
         </form>
       </section>
     </div>
+  </div>
+  <div class="login-alert-div">
+    <p #successAlert class="no-display">
+      <ngb-alert [type]="success" [dismissible]="false">
+        <b>Login Successful!</b> Please go to the submissions to rate the
+        outfits!
+      </ngb-alert>
+    </p>
+    <p #failAlert class="no-display">
+      <ngb-alert [type]="danger" [dismissible]="false">
+        <b>Login failed!</b> Please try again or reach out to site Admin!
+      </ngb-alert>
+    </p>
   </div>
 </div>

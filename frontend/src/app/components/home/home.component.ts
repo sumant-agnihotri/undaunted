@@ -1,4 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  ViewChild,
+  ElementRef,
+  Renderer2,
+} from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
@@ -10,8 +17,18 @@ export class HomeComponent implements OnInit {
   _username: string;
   _password: string;
   loginURL: string;
+  success: string;
+  danger: string;
+  audioPlayer: HTMLElement;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private renderer: Renderer2) {
+    this.success = 'success';
+    this.danger = 'danger';
+  }
+
+  @ViewChild('loginDiv') logindiv: ElementRef;
+  @ViewChild('successAlert') s_alert: ElementRef;
+  @ViewChild('failAlert') f_alert: ElementRef;
 
   login(username, password) {
     // let headers = new Headers();
@@ -19,7 +36,6 @@ export class HomeComponent implements OnInit {
     this.loginURL = 'http://127.0.0.1:8000/judge/login';
     this._username = username;
     this._password = password;
-    console.log(this._username, this._password);
 
     var body = { username: username, password: password };
     // var csrftoken = getCookie('csrftoken');
@@ -28,7 +44,13 @@ export class HomeComponent implements OnInit {
     // header.set('Access-Control-Allow-Origin', '*');
 
     this.http.post(this.loginURL, body).subscribe((resp) => {
-      console.log(resp);
+      if (resp['status'] == true) {
+        this.renderer.setStyle(this.logindiv.nativeElement, 'display', 'none');
+        this.renderer.setStyle(this.s_alert.nativeElement, 'display', 'block');
+        this.renderer.setStyle(this.f_alert.nativeElement, 'display', 'none');
+      } else {
+        this.renderer.setStyle(this.f_alert.nativeElement, 'display', 'block');
+      }
     });
   }
 
