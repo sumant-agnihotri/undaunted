@@ -39,18 +39,6 @@ export class JudgeComponent implements OnInit {
     ];
   }
 
-  // ngAfterViewInit() {
-  //   $('img').each(function () {
-  //     var image = $(this);
-  //     if (
-  //       image.context.naturalWidth == 0 ||
-  //       image.readyState == 'uninitialized'
-  //     ) {
-  //       $(image).unbind('error').hide();
-  //     }
-  //   });
-  // }
-
   openXl(content, sub, num) {
     this._sub = sub;
     this._num = num;

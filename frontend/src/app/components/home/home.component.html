@@ -34,9 +34,19 @@
         <!-- <p class="valid">Valid. Please wait a moment.</p>
       <p class="error">Error. Please enter correct Username &amp; password.</p> -->
         <form class="loginbox" autocomplete="off">
-          <input placeholder="Username" type="text" id="username" />
-          <input placeholder="Password" type="password" id="password" />
-          <button id="login-submit">Login</button>
+          <input placeholder="Username" type="text" #username id="username" />
+          <input
+            placeholder="Password"
+            type="password"
+            #password
+            id="password"
+          />
+          <button
+            id="login-submit"
+            (click)="login(username.value, password.value)"
+          >
+            Login
+          </button>
         </form>
       </section>
     </div>
