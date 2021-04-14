@@ -56,7 +56,12 @@
       </div>
       <div class="rate-col">
         <div>
-          <button class="blue-button" (click)="openLg(longContent)">
+          <button
+            #button
+            id="{{ sub }}"
+            class="blue-button"
+            (click)="openLg(longContent)"
+          >
             Rate Outfit
           </button>
         </div>

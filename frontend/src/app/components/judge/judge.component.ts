@@ -1,4 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ViewChildren,
+  ElementRef,
+  Renderer2,
+  QueryList,
+  Input,
+  Output,
+  EventEmitter,
+} from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 // import * as $ from 'jquery';
 @Component({
@@ -14,7 +24,7 @@ export class JudgeComponent implements OnInit {
   _num: string;
   rate: string[];
 
-  constructor(private modalService: NgbModal) {
+  constructor(private modalService: NgbModal, private renderer: Renderer2) {
     this.subs = [
       'Ancano-Necro',
       'Autumn_Equinox-NB',
@@ -32,12 +42,16 @@ export class JudgeComponent implements OnInit {
 
     this.rate = [
       'How well does the outfit represent its class:',
-      'How shiny is this outfit:',
-      'Different styles used and how well they come together:',
-      'How cheap is this outfit (1=cheap & 10=expensive):',
-      'Rate based purely on looks:',
+      'You thought it was',
+      'the rating parameters',
+      'for the contest but',
+      'it was me Dio!',
     ];
   }
+
+  @ViewChildren('button') buttons: QueryList<ElementRef>;
+  @Input() isLast: boolean;
+  @Output('ngInit') initEvent: EventEmitter<any> = new EventEmitter();
 
   openXl(content, sub, num) {
     this._sub = sub;
@@ -73,5 +87,12 @@ export class JudgeComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {}
+  ngOnInit() {
+    if (this.isLast) {
+      console.log(this.buttons);
+      this.buttons.forEach((button) =>
+        this.renderer.setStyle(button.nativeElement, 'display', 'none')
+      );
+    }
+  }
 }
