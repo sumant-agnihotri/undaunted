@@ -1,0 +1,51 @@
+.description-div{
+    color: #fff;
+    margin: 0 20px 0 20px;
+}
+
+.login-section{
+    width: 100%;
+}
+
+.login-div {
+  width: 40%;
+  padding-left: 20px;
+  border-radius: 5px;
+  background: #ffffff80;
+  padding: 40px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+
+.login-head {
+  margin: 0 0 20px;
+  line-height: 1;
+  color: #44c4e7;
+  font-size: 20px;
+  font-weight: 400;
+  text-shadow: 0 0 3px #000000cc, 0 0 5px #00ccff8e;
+}
+
+.loginbox {
+  display: flex;
+  flex-direction: column;
+}
+
+.loginbox input {
+  margin: 0 0 1rem 0;
+}
+
+#login-submit {
+  cursor: pointer;
+  background: #44c4e7;
+  width: 100%;
+  padding: 10px 15px;
+  border: 0;
+  color: #fff;
+  font-family: "Roboto";
+  font-size: 14px;
+  font-weight: 400;
+}
+
+#login-submit:hover {
+  background: #369cb8;
+}

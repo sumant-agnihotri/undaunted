@@ -1,7 +1,40 @@
-<p>
-  <ngb-alert [dismissible]="false">
-    <strong>Alert!</strong> If you are a judge, please login below and
-    <strong>then</strong>
-    click on the Judge tab above.
-  </ngb-alert>
-</p>
+<div>
+  <div class="alert">
+    <ngb-alert [dismissible]="false">
+      <strong>Alert!</strong> If you are a judge, please login below and
+      <strong>then</strong>
+      click on the Submissions tab above.
+    </ngb-alert>
+  </div>
+  <div class="description-div">
+    <h3>Outfit Contest</h3>
+    <p>
+      Welcome to Undaunted Insomniac's first Class Outfit Contest! With all the
+      motifs flying around, we thought now would be a great time for everyone to
+      show off their ESO drip. The rules are simple, and the prizes are BIG (and
+      likely to get bigger)! The goal is to submit an outfit that you think best
+      represents your characters class (Templar, Dragonknight, Necromancer,
+      Warden, Sorceror, or Nightblade). One winner from each class will be
+      chosen and EACH winner will receive 1 MILLION gold! To enter, simply post
+      screenshot(s) of your character to
+      <a target="_blank" href="https://discord.gg/undauntedinsomniacs"
+        >#class-contest-submissions</a
+      >. Entries close 11:59pm PDT on April 16th, and the winners will be
+      announced on April 17th!
+    </p>
+  </div>
+  <div style="display: flex; justify-content: center">
+    <div class="login-div">
+      <section class="login-section">
+        <h2 class="login-head">Login As Judge</h2>
+        <!-- <p class="valid">Valid. Please wait a moment.</p>
+      <p class="error">Error. Please enter correct Username &amp; password.</p> -->
+        <form class="loginbox" autocomplete="off">
+          <input placeholder="Username" type="text" id="username" />
+          <input placeholder="Password" type="password" id="password" />
+          <button id="login-submit">Login</button>
+        </form>
+      </section>
+    </div>
+  </div>
+</div>
