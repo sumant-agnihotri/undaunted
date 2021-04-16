@@ -1,11 +1,4 @@
 <div>
-  <div class="alert">
-    <ngb-alert [dismissible]="false">
-      <strong>Alert!</strong> If you are a judge, please login below and
-      <strong>then</strong>
-      click on the Submissions tab above.
-    </ngb-alert>
-  </div>
   <div class="description-div">
     <h3>Outfit Contest</h3>
     <p>
@@ -28,26 +21,7 @@
       winners will be announced on April 17th!
     </p>
   </div>
-  <div #loginDiv class="login-parent">
-    <div class="login-div">
-      <section class="login-section">
-        <h2 class="login-head">Login As Judge</h2>
-        <!-- <p class="valid">Valid. Please wait a moment.</p>
-      <p class="error">Error. Please enter correct Username &amp; password.</p> -->
-        <form class="loginbox" autocomplete="off">
-          <input placeholder="Username" type="text" #username />
-          <input placeholder="Password" type="password" #password />
-          <button
-            id="login-submit"
-            (click)="login(username.value, password.value)"
-          >
-            Login
-          </button>
-        </form>
-      </section>
-    </div>
-  </div>
-  <div class="login-alert-div">
+  <!-- <div class="login-alert-div">
     <p #successAlert class="no-display">
       <ngb-alert [type]="success" [dismissible]="false">
         <b>Login Successful!</b> Please go to the submissions to rate the
@@ -59,5 +33,5 @@
         <b>Login failed!</b> Please try again or reach out to site Admin!
       </ngb-alert>
     </p>
-  </div>
+  </div> -->
 </div>

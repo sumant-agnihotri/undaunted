@@ -1,72 +1,116 @@
 <div>
-  <ng-template #content let-modal>
-    <div class="modal-header">
-      <button
-        type="button"
-        class="close"
-        aria-label="Close"
-        (click)="modal.dismiss('Cross click')"
-      >
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      <img src="/assets/images/submissions/{{ _sub }}/{{ _num }}.png" />
-    </div>
-  </ng-template>
+  <div class="alert">
+    <ngb-alert [dismissible]="false">
+      <strong>Alert!</strong> If you are a judge, please login below and
+      <strong>then</strong>
+      click on Rate Outfit.
+    </ngb-alert>
+  </div>
 
-  <ng-template #longContent let-modal>
-    <div class="modal-header">
-      <button
-        type="button"
-        class="close"
-        aria-label="Close"
-        (click)="modal.dismiss('Cross click')"
-      >
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      <div *ngFor="let each of rate" class="rate-line">
-        <div>
-          <li>{{ each }}</li>
-        </div>
-        <div class="rating-div">
-          <pre class="rating-number"><b>{{currentRate}}</b></pre>
-          <ngb-rating [(rate)]="currentRate"></ngb-rating>
-        </div>
-      </div>
-    </div>
-  </ng-template>
+  <div class="login-alert-div">
+    <p #successAlert class="no-display">
+      <ngb-alert [type]="success" [dismissible]="false">
+        <b>Login Successful!</b> 
+      </ngb-alert>
+    </p>
+    <p #failAlert class="no-display">
+      <ngb-alert [type]="danger" [dismissible]="false">
+        <b>Login failed!</b> Please try again or reach out to the site Admin!
+      </ngb-alert>
+    </p>
+  </div>
 
-  <div *ngFor="let sub of subs">
-    <div>
-      <h3>@{{ sub }}</h3>
-    </div>
-    <div class="user-row">
-      <div class="img-col">
-        <div *ngFor="let num of [1, 2, 3]" class="img-div">
-          <img
-            src="/assets/images/submissions/{{ sub }}/{{ num }}.png"
-            (click)="openXl(content, sub, num)"
-            class="hover"
-            onerror="this.style.display='none';"
-          />
-        </div>
-      </div>
-      <div class="rate-col">
-        <div>
+  <div #loginDiv class="login-parent">
+    <div class="login-div">
+      <section class="login-section">
+        <h2 class="login-head">Login As Judge</h2>
+        <!-- <p class="valid">Valid. Please wait a moment.</p>
+      <p class="error">Error. Please enter correct Username &amp; password.</p> -->
+        <form class="loginbox" autocomplete="off">
+          <input placeholder="Username" type="text" #username />
+          <input placeholder="Password" type="password" #password />
           <button
-            #button
-            id="{{ sub }}"
-            class="blue-button"
-            (click)="openLg(longContent)"
+            id="login-submit"
+            (click)="login(username.value, password.value)"
           >
-            Rate Outfit
+            Login
           </button>
+        </form>
+      </section>
+    </div>
+  </div>
+  <hr class="rounded" />
+
+  <div>
+    <ng-template #content let-modal>
+      <div class="modal-header">
+        <button
+          type="button"
+          class="close"
+          aria-label="Close"
+          (click)="modal.dismiss('Cross click')"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <img src="/assets/images/submissions/{{ _sub }}/{{ _num }}.png" />
+      </div>
+    </ng-template>
+
+    <ng-template #longContent let-modal>
+      <div class="modal-header">
+        <button
+          type="button"
+          class="close"
+          aria-label="Close"
+          (click)="modal.dismiss('Cross click')"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div *ngFor="let each of rate" class="rate-line">
+          <div>
+            <li>{{ each }}</li>
+          </div>
+          <div class="rating-div">
+            <pre class="rating-number"><b>{{currentRate}}</b></pre>
+            <ngb-rating [(rate)]="currentRate"></ngb-rating>
+          </div>
         </div>
       </div>
+    </ng-template>
+
+    <div *ngFor="let sub of subs">
+      <div>
+        <h3>@{{ sub }}</h3>
+      </div>
+      <div class="user-row">
+        <div class="img-col">
+          <div *ngFor="let num of [1, 2, 3]" class="img-div">
+            <img
+              src="/assets/images/submissions/{{ sub }}/{{ num }}.png"
+              (click)="openXl(content, sub, num)"
+              class="hover"
+              onerror="this.style.display='none';"
+            />
+          </div>
+        </div>
+        <div class="rate-col">
+          <div>
+            <button
+              #button
+              id="{{ sub }}"
+              class="blue-button"
+              (click)="openLg(longContent)"
+            >
+              Rate Outfit
+            </button>
+          </div>
+        </div>
+      </div>
+      <hr class="rounded" />
     </div>
-    <hr class="rounded" />
   </div>
 </div>

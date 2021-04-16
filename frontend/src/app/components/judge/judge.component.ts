@@ -8,6 +8,7 @@ import {
   Input,
   Output,
   EventEmitter,
+  ViewChild,
 } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -24,12 +25,17 @@ export class JudgeComponent {
   _sub: string;
   _num: string;
   rate: string[];
+  success: string;
+  danger: string;
 
   constructor(
     private modalService: NgbModal,
     private renderer: Renderer2,
     private http: HttpClient
   ) {
+    this.success = 'success';
+    this.danger = 'danger';
+
     this.subs = [
       'Ancano-Necro',
       'Autumn_Equinox-NB',
@@ -57,10 +63,14 @@ export class JudgeComponent {
   @ViewChildren('button') buttons: QueryList<ElementRef>;
   @Input() isLast: boolean;
   @Output('ngInit') initEvent: EventEmitter<any> = new EventEmitter();
+  @ViewChild('successAlert') s_alert: ElementRef;
+  @ViewChild('failAlert') f_alert: ElementRef;
+  @ViewChild('loginDiv') logindiv: ElementRef;
 
   openXl(content, sub, num) {
     this._sub = sub;
     this._num = num;
+    // console.log(body)
     this.modalService.open(content, { size: 'xl' }).result.then(
       (result) => {
         this.closeResult = `Closed with: ${result}`;
@@ -92,17 +102,32 @@ export class JudgeComponent {
     }
   }
 
-  ngAfterViewInit() {
-    const loginURL = 'http://127.0.0.1:8000/judge/check';
+  login(username, password) {
+    const loginURL = 'http://127.0.0.1:8000/judge/login';
 
-    this.http.get(loginURL).subscribe((resp) => {
-      if (resp['status'] == false) {
-        console.log('inside false');
+    let body = { username: username, password: password };
+
+    this.http.post(loginURL, body).subscribe((resp) => {
+      if (resp['status'] == true) {
+        this.renderer.setStyle(this.logindiv.nativeElement, 'display', 'none');
+        this.buttons.forEach((button) =>
+          this.renderer.setStyle(button.nativeElement, 'pointer-events', 'auto')
+        );
+        this.renderer.setStyle(this.s_alert.nativeElement, 'display', 'block');
+        this.renderer.setStyle(this.f_alert.nativeElement, 'display', 'none');
+      } else {
         this.buttons.forEach((button) =>
           this.renderer.setStyle(button.nativeElement, 'pointer-events', 'none')
         );
+        this.renderer.setStyle(this.f_alert.nativeElement, 'display', 'block');
       }
     });
+  }
+
+  ngAfterViewInit() {
+    this.buttons.forEach((button) =>
+      this.renderer.setStyle(button.nativeElement, 'pointer-events', 'none')
+    );
 
     // console.log(this.buttons);
   }
