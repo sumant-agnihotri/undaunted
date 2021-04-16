@@ -10,13 +10,14 @@ import {
   EventEmitter,
 } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 // import * as $ from 'jquery';
 @Component({
   selector: 'app-judge',
   templateUrl: './judge.component.html',
   styleUrls: ['./judge.component.css'],
 })
-export class JudgeComponent implements OnInit {
+export class JudgeComponent {
   currentRate = 1;
   closeResult = '';
   subs: string[];
@@ -24,7 +25,11 @@ export class JudgeComponent implements OnInit {
   _num: string;
   rate: string[];
 
-  constructor(private modalService: NgbModal, private renderer: Renderer2) {
+  constructor(
+    private modalService: NgbModal,
+    private renderer: Renderer2,
+    private http: HttpClient
+  ) {
     this.subs = [
       'Ancano-Necro',
       'Autumn_Equinox-NB',
@@ -87,12 +92,18 @@ export class JudgeComponent implements OnInit {
     }
   }
 
-  ngOnInit() {
-    if (this.isLast) {
-      console.log(this.buttons);
-      this.buttons.forEach((button) =>
-        this.renderer.setStyle(button.nativeElement, 'display', 'none')
-      );
-    }
+  ngAfterViewInit() {
+    const loginURL = 'http://127.0.0.1:8000/judge/check';
+
+    this.http.get(loginURL).subscribe((resp) => {
+      if (resp['status'] == false) {
+        console.log('inside false');
+        this.buttons.forEach((button) =>
+          this.renderer.setStyle(button.nativeElement, 'pointer-events', 'none')
+        );
+      }
+    });
+
+    // console.log(this.buttons);
   }
 }
