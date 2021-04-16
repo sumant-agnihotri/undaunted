@@ -32,3 +32,22 @@ def check(request):
     else:
         response["status"] = False
     return JsonResponse(response)
+
+
+@csrf_exempt
+def save_data(request):
+    body = json.loads(request.body)
+
+    out_file = open("db.json", "w") 
+    json.dump(body, out_file)
+    out_file.close()
+    return JsonResponse({"status": True})
+
+
+@csrf_exempt
+def fetch_data(request):
+    f = open('db.json',)
+    data = json.load(f)
+    f.close()
+
+    return JsonResponse(data)

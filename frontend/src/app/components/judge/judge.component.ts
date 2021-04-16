@@ -59,35 +59,35 @@ export class JudgeComponent {
       'Ziggie-Necro',
     ];
 
-    this.rate = [
-      'How well does the outfit represent its class:',
-      'You thought it was',
-      'the rating parameters',
-      'for the contest but',
-      'it was me Dio!',
-    ];
+    // this.rate = [
+    //   'How well does the outfit represent its class:',
+    //   'You thought it was',
+    //   'the rating parameters',
+    //   'for the contest but',
+    //   'it was me Dio!',
+    // ];
 
     // "ratingsData" object needs to be fetched from server on first time when app bootstraps
     // Comment below object after ratings APIs implemented
-    this.ratingsData = {
-      judge: 'abs',
-      ratings: {
-        'Ancano-Necro': {
-          'How well does the outfit represent its class:': 1,
-          'You thought it was':2,
-          'the rating parameters':3,
-          'for the contest but':4,
-          'it was me Dio!':5
-        },
-        'Autumn_Equinox-NB': {
-          'How well does the outfit represent its class:': 5,
-          'You thought it was':6,
-          'the rating parameters':7,
-          'for the contest but':8,
-          'it was me Dio!':2
-        }
-      }
-    }
+    // this.ratingsData = {
+    //   judge: 'abs',
+    //   ratings: {
+    //     'Ancano-Necro': {
+    //       'How well does the outfit represent its class:': 1,
+    //       'You thought it was':2,
+    //       'the rating parameters':3,
+    //       'for the contest but':4,
+    //       'it was me Dio!':5
+    //     },
+    //     'Autumn_Equinox-NB': {
+    //       'How well does the outfit represent its class:': 5,
+    //       'You thought it was':6,
+    //       'the rating parameters':7,
+    //       'for the contest but':8,
+    //       'it was me Dio!':2
+    //     }
+    //   }
+    // }
   }
 
   @ViewChildren('button') buttons: QueryList<ElementRef>;
