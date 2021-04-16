@@ -60,6 +60,7 @@
 
     <ng-template #longContent let-modal>
       <div class="modal-header">
+        <h2>Rate @{{activeParticipant}}</h2>
         <button
           type="button"
           class="close"
@@ -70,15 +71,19 @@
         </button>
       </div>
       <div class="modal-body">
-        <div *ngFor="let each of rate" class="rate-line">
+        <div *ngFor="let ratingObj of userRatings" class="rate-line">
           <div>
-            <li>{{ each }}</li>
+            <li>{{ ratingObj['label'] }}</li>
           </div>
           <div class="rating-div">
-            <pre class="rating-number"><b>{{currentRate}}</b></pre>
-            <ngb-rating [(rate)]="currentRate"></ngb-rating>
+            <pre class="rating-number"><b>{{ratingObj['rating']}}</b></pre>
+            <ngb-rating [(rate)]="ratingObj['rating']" (rateChange)="tempStoreNewUserRatings($event, ratingObj)"></ngb-rating>
           </div>
         </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-danger" aria-label="Close" (click)="modal.dismiss('Cross click')">Cancel</button>
+        <button class="btn btn-primary" aria-label="Close" (click)="modal.dismiss('Cross click'); storeUserRatings();">Done</button>
       </div>
     </ng-template>
 
@@ -103,7 +108,7 @@
               #button
               id="{{ sub }}"
               class="blue-button"
-              (click)="openLg(longContent)"
+              (click)="openLg(longContent, sub)"
             >
               Rate Outfit
             </button>

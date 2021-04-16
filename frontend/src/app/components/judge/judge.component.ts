@@ -28,6 +28,14 @@ export class JudgeComponent {
   success: string;
   danger: string;
 
+  body = {};
+  judgeUsername: string = '';
+  activeParticipant: string;
+  ratings = {};
+  ratingsData = {};
+  tempRatings = {};
+  userRatings= [];
+
   constructor(
     private modalService: NgbModal,
     private renderer: Renderer2,
@@ -58,6 +66,28 @@ export class JudgeComponent {
       'for the contest but',
       'it was me Dio!',
     ];
+
+    // "ratingsData" object needs to be fetched from server on first time when app bootstraps
+    // Comment below object after ratings APIs implemented
+    this.ratingsData = {
+      judge: 'abs',
+      ratings: {
+        'Ancano-Necro': {
+          'How well does the outfit represent its class:': 1,
+          'You thought it was':2,
+          'the rating parameters':3,
+          'for the contest but':4,
+          'it was me Dio!':5
+        },
+        'Autumn_Equinox-NB': {
+          'How well does the outfit represent its class:': 5,
+          'You thought it was':6,
+          'the rating parameters':7,
+          'for the contest but':8,
+          'it was me Dio!':2
+        }
+      }
+    }
   }
 
   @ViewChildren('button') buttons: QueryList<ElementRef>;
@@ -81,7 +111,11 @@ export class JudgeComponent {
     );
   }
 
-  openLg(longContent) {
+  openLg(longContent, participant) {
+    this.activeParticipant = participant;
+    this.clearTempRatings();
+    this.setUserRatings(participant);
+
     this.modalService.open(longContent, { size: 'lg' }).result.then(
       (result) => {
         this.closeResult = `Closed with: ${result}`;
@@ -90,6 +124,63 @@ export class JudgeComponent {
         this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
       }
     );
+  }
+
+  clearTempRatings() {
+    this.tempRatings = {};
+  }
+
+  setUserRatings(participant) {
+    // Sets previously set "Ratings" in the UI
+    this.userRatings = Object.keys(this.ratingsData['ratings'][participant]).map(ratingLabel => {
+      return {
+        label: ratingLabel,
+        rating: this.ratingsData['ratings'][participant][ratingLabel]
+      };
+    });
+  }
+
+  storeUserRatings() {
+    // Updates the "ratings" object on star click, which then can be stored in DB
+    if(Object.keys(this.tempRatings).length > 0) {
+      // If any rating is changed
+      Object.keys(this.tempRatings).map(label => {
+        this.ratingsData['ratings'][this.activeParticipant][label] = this.tempRatings[label];   
+      })
+    }
+
+    this.clearTempRatings();
+    
+    // Store updated "ratings" obj in DB
+    this.saveRatingsData();
+  }
+
+  tempStoreNewUserRatings(newRating, ratingObj) {
+    this.tempRatings[ratingObj['label']] = newRating;
+  }
+
+  fetchRatingsData() {
+    const endpoint = 'http://127.0.0.1:8000/judge/fetch_data',
+    reqBody = {judge_username: this.judgeUsername};
+
+    this.http.post(endpoint, reqBody).subscribe(res => {
+      this.ratingsData = res;
+    });
+  }
+
+  saveRatingsData() {
+    const endpoint = 'http://127.0.0.1:8000/judge/save_data',
+    reqBody = this.ratingsData;
+
+    this.http.post(endpoint, reqBody).subscribe(res => {
+      const status = res['status'];
+
+      if(status === true) {
+        console.log('Ratings saved!');
+      }else{
+        console.log('Error!');
+      }
+    });
   }
 
   private getDismissReason(reason: any): string {
@@ -105,10 +196,13 @@ export class JudgeComponent {
   login(username, password) {
     const loginURL = 'http://127.0.0.1:8000/judge/login';
 
-    let body = { username: username, password: password };
+    this.body = { username: username, password: password };
 
-    this.http.post(loginURL, body).subscribe((resp) => {
+    this.http.post(loginURL, this.body).subscribe((resp) => {
       if (resp['status'] == true) {
+        this.judgeUsername = username;
+        this.fetchRatingsData(); // Now LoggedIn, so fetch Ratings Data
+
         this.renderer.setStyle(this.logindiv.nativeElement, 'display', 'none');
         this.buttons.forEach((button) =>
           this.renderer.setStyle(button.nativeElement, 'pointer-events', 'auto')
