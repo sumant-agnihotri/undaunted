@@ -1,1 +1,165 @@
-{"judge": "abs", "ratings": {"Ancano-Necro": {"How well does the outfit represent its class:": 7, "You thought it was": 4, "the rating parameters": 9, "for the contest but": 3, "it was me Dio!": 8}, "Autumn_Equinox-NB": {"How well does the outfit represent its class:": 1, "You thought it was": 1, "the rating parameters": 10, "for the contest but": 1, "it was me Dio!": 1}}}
+{
+    "judge": "default",
+    "ratings": {
+        "+AlekWithK-Templar": {
+            "How well does the outfit represent its class": 1,
+            "How good does this outfit look (in general)": 1,
+            "How well are different outfit styles used together": 1,
+            "Bonus: Ooh, shiny outfit": 1,
+            "Bonus: Creative/out-of-the-box outfit": 1,
+            "Bonus: Poor-mans/cheapest outfit": 1
+        },
+        "Ancano-Necromancer": {
+            "How well does the outfit represent its class": 1,
+            "How good does this outfit look (in general)": 1,
+            "How well are different outfit styles used together": 1,
+            "Bonus: Ooh, shiny outfit": 1,
+            "Bonus: Creative/out-of-the-box outfit": 1,
+            "Bonus: Poor-mans/cheapest outfit": 1
+        },
+        "Autumn_Equinox-NightBlade": {
+            "How well does the outfit represent its class": 1,
+            "How good does this outfit look (in general)": 1,
+            "How well are different outfit styles used together": 1,
+            "Bonus: Ooh, shiny outfit": 1,
+            "Bonus: Creative/out-of-the-box outfit": 1,
+            "Bonus: Poor-mans/cheapest outfit": 1
+        },
+        "ceregorn_eso-Sorcerer": {
+            "How well does the outfit represent its class": 1,
+            "How good does this outfit look (in general)": 1,
+            "How well are different outfit styles used together": 1,
+            "Bonus: Ooh, shiny outfit": 1,
+            "Bonus: Creative/out-of-the-box outfit": 1,
+            "Bonus: Poor-mans/cheapest outfit": 1
+        },
+        "daerwynn-Sorcerer": {
+            "How well does the outfit represent its class": 1,
+            "How good does this outfit look (in general)": 1,
+            "How well are different outfit styles used together": 1,
+            "Bonus: Ooh, shiny outfit": 1,
+            "Bonus: Creative/out-of-the-box outfit": 1,
+            "Bonus: Poor-mans/cheapest outfit": 1
+        },
+        "Fiyero-Necromancer": {
+            "How well does the outfit represent its class": 1,
+            "How good does this outfit look (in general)": 1,
+            "How well are different outfit styles used together": 1,
+            "Bonus: Ooh, shiny outfit": 1,
+            "Bonus: Creative/out-of-the-box outfit": 1,
+            "Bonus: Poor-mans/cheapest outfit": 1
+        },
+        "FVLegacy-DragonKnight": {
+            "How well does the outfit represent its class": 1,
+            "How good does this outfit look (in general)": 1,
+            "How well are different outfit styles used together": 1,
+            "Bonus: Ooh, shiny outfit": 1,
+            "Bonus: Creative/out-of-the-box outfit": 1,
+            "Bonus: Poor-mans/cheapest outfit": 1
+        },
+        "Jodagon_Drago-DragonKnight": {
+            "How well does the outfit represent its class": 1,
+            "How good does this outfit look (in general)": 1,
+            "How well are different outfit styles used together": 1,
+            "Bonus: Ooh, shiny outfit": 1,
+            "Bonus: Creative/out-of-the-box outfit": 1,
+            "Bonus: Poor-mans/cheapest outfit": 1
+        },
+        "Khanoz6181Joescatgirl-Necromancer": {
+            "How well does the outfit represent its class": 1,
+            "How good does this outfit look (in general)": 1,
+            "How well are different outfit styles used together": 1,
+            "Bonus: Ooh, shiny outfit": 1,
+            "Bonus: Creative/out-of-the-box outfit": 1,
+            "Bonus: Poor-mans/cheapest outfit": 1
+        },
+        "LordDoom-Sorcerer": {
+            "How well does the outfit represent its class": 1,
+            "How good does this outfit look (in general)": 1,
+            "How well are different outfit styles used together": 1,
+            "Bonus: Ooh, shiny outfit": 1,
+            "Bonus: Creative/out-of-the-box outfit": 1,
+            "Bonus: Poor-mans/cheapest outfit": 1
+        },
+        "Nezzy-NightBlade": {
+            "How well does the outfit represent its class": 1,
+            "How good does this outfit look (in general)": 1,
+            "How well are different outfit styles used together": 1,
+            "Bonus: Ooh, shiny outfit": 1,
+            "Bonus: Creative/out-of-the-box outfit": 1,
+            "Bonus: Poor-mans/cheapest outfit": 1
+        },
+        "PvXGamer(PC-NA)-Necromancer": {
+            "How well does the outfit represent its class": 1,
+            "How good does this outfit look (in general)": 1,
+            "How well are different outfit styles used together": 1,
+            "Bonus: Ooh, shiny outfit": 1,
+            "Bonus: Creative/out-of-the-box outfit": 1,
+            "Bonus: Poor-mans/cheapest outfit": 1
+        },
+        "Quiest-Templar": {
+            "How well does the outfit represent its class": 1,
+            "How good does this outfit look (in general)": 1,
+            "How well are different outfit styles used together": 1,
+            "Bonus: Ooh, shiny outfit": 1,
+            "Bonus: Creative/out-of-the-box outfit": 1,
+            "Bonus: Poor-mans/cheapest outfit": 1
+        },
+        "Sheep-Sorcerer": {
+            "How well does the outfit represent its class": 1,
+            "How good does this outfit look (in general)": 1,
+            "How well are different outfit styles used together": 1,
+            "Bonus: Ooh, shiny outfit": 1,
+            "Bonus: Creative/out-of-the-box outfit": 1,
+            "Bonus: Poor-mans/cheapest outfit": 1
+        },
+        "suguyama-DragonKnight": {
+            "How well does the outfit represent its class": 1,
+            "How good does this outfit look (in general)": 1,
+            "How well are different outfit styles used together": 1,
+            "Bonus: Ooh, shiny outfit": 1,
+            "Bonus: Creative/out-of-the-box outfit": 1,
+            "Bonus: Poor-mans/cheapest outfit": 1
+        },
+        "Taleon_Zero-NightBlade": {
+            "How well does the outfit represent its class": 1,
+            "How good does this outfit look (in general)": 1,
+            "How well are different outfit styles used together": 1,
+            "Bonus: Ooh, shiny outfit": 1,
+            "Bonus: Creative/out-of-the-box outfit": 1,
+            "Bonus: Poor-mans/cheapest outfit": 1
+        },
+        "Worldhop_Ur-DragonKnight": {
+            "How well does the outfit represent its class": 1,
+            "How good does this outfit look (in general)": 1,
+            "How well are different outfit styles used together": 1,
+            "Bonus: Ooh, shiny outfit": 1,
+            "Bonus: Creative/out-of-the-box outfit": 1,
+            "Bonus: Poor-mans/cheapest outfit": 1
+        },
+        "Zahmbi-Necromancer": {
+            "How well does the outfit represent its class": 1,
+            "How good does this outfit look (in general)": 1,
+            "How well are different outfit styles used together": 1,
+            "Bonus: Ooh, shiny outfit": 1,
+            "Bonus: Creative/out-of-the-box outfit": 1,
+            "Bonus: Poor-mans/cheapest outfit": 1
+        },
+        "Zass-Warden": {
+            "How well does the outfit represent its class": 1,
+            "How good does this outfit look (in general)": 1,
+            "How well are different outfit styles used together": 1,
+            "Bonus: Ooh, shiny outfit": 1,
+            "Bonus: Creative/out-of-the-box outfit": 1,
+            "Bonus: Poor-mans/cheapest outfit": 1
+        },
+        "Ziggie-Necromancer": {
+            "How well does the outfit represent its class": 1,
+            "How good does this outfit look (in general)": 1,
+            "How well are different outfit styles used together": 1,
+            "Bonus: Ooh, shiny outfit": 1,
+            "Bonus: Creative/out-of-the-box outfit": 1,
+            "Bonus: Poor-mans/cheapest outfit": 1
+        }
+    }
+}
