@@ -12,8 +12,8 @@ import json
 def judge_login(request):
     print(request.body)
     body = json.loads(request.body)
-    username =  body['username']
-    password =  body['password']
+    username = body['username']
+    password = body['password']
     user = authenticate(request, username=username, password=password)
     print(user)
     if user is not None:
@@ -37,8 +37,8 @@ def check(request):
 @csrf_exempt
 def save_data(request):
     body = json.loads(request.body)
-
-    out_file = open("db.json", "w") 
+    jname = body["judge"]
+    out_file = open(jname+".json", "w")
     json.dump(body, out_file)
     out_file.close()
     return JsonResponse({"status": True})
@@ -46,7 +46,12 @@ def save_data(request):
 
 @csrf_exempt
 def fetch_data(request):
-    f = open('db.json',)
+    body = json.loads(request.body)
+    jname = body["judge_username"]
+    try:
+        f = open(jname+'.json',)
+    except:
+        f = open('db.json',)
     data = json.load(f)
     f.close()
 

@@ -27,6 +27,7 @@ export class JudgeComponent {
   rate: string[];
   success: string;
   danger: string;
+  _username: string;
 
   body = {};
   judgeUsername: string = '';
@@ -34,7 +35,7 @@ export class JudgeComponent {
   ratings = {};
   ratingsData = {};
   tempRatings = {};
-  userRatings= [];
+  userRatings = [];
 
   constructor(
     private modalService: NgbModal,
@@ -132,25 +133,29 @@ export class JudgeComponent {
 
   setUserRatings(participant) {
     // Sets previously set "Ratings" in the UI
-    this.userRatings = Object.keys(this.ratingsData['ratings'][participant]).map(ratingLabel => {
+    this.userRatings = Object.keys(
+      this.ratingsData['ratings'][participant]
+    ).map((ratingLabel) => {
       return {
         label: ratingLabel,
-        rating: this.ratingsData['ratings'][participant][ratingLabel]
+        rating: this.ratingsData['ratings'][participant][ratingLabel],
       };
     });
   }
 
   storeUserRatings() {
     // Updates the "ratings" object on star click, which then can be stored in DB
-    if(Object.keys(this.tempRatings).length > 0) {
+    if (Object.keys(this.tempRatings).length > 0) {
       // If any rating is changed
-      Object.keys(this.tempRatings).map(label => {
-        this.ratingsData['ratings'][this.activeParticipant][label] = this.tempRatings[label];   
-      })
+      Object.keys(this.tempRatings).map((label) => {
+        this.ratingsData['ratings'][this.activeParticipant][
+          label
+        ] = this.tempRatings[label];
+      });
     }
 
     this.clearTempRatings();
-    
+
     // Store updated "ratings" obj in DB
     this.saveRatingsData();
   }
@@ -161,23 +166,24 @@ export class JudgeComponent {
 
   fetchRatingsData() {
     const endpoint = 'http://127.0.0.1:8000/judge/fetch_data',
-    reqBody = {judge_username: this.judgeUsername};
+      reqBody = { judge_username: this.judgeUsername };
 
-    this.http.post(endpoint, reqBody).subscribe(res => {
+    this.http.post(endpoint, reqBody).subscribe((res) => {
       this.ratingsData = res;
     });
   }
 
   saveRatingsData() {
     const endpoint = 'http://127.0.0.1:8000/judge/save_data',
-    reqBody = this.ratingsData;
+      reqBody = this.ratingsData;
+    reqBody['judge'] = this.judgeUsername;
 
-    this.http.post(endpoint, reqBody).subscribe(res => {
+    this.http.post(endpoint, reqBody).subscribe((res) => {
       const status = res['status'];
 
-      if(status === true) {
+      if (status === true) {
         console.log('Ratings saved!');
-      }else{
+      } else {
         console.log('Error!');
       }
     });
