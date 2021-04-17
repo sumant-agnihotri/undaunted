@@ -46,18 +46,26 @@ export class JudgeComponent {
     this.danger = 'danger';
 
     this.subs = [
-      'Ancano-Necro',
-      'Autumn_Equinox-NB',
-      'ceregorn_eso-Socr',
-      'FVLegacy-DK',
-      'Jodagon_Drago-DK',
-      'Nezzy-NB',
-      'Quiest-Temp',
-      'Sheep-Socr',
-      'Taleon_Zero-NB',
-      'Zahmbi-Necro',
-      'Zass-Ward',
-      'Ziggie-Necro',
+      '+AlekWithK-Templar',
+      'Ancano-Necromancer',
+      'Autumn_Equinox-NightBlade',
+      'ceregorn_eso-Sorcerer',
+      'daerwynn-Sorcerer',
+      'Fiyero-Necromancer',
+      'FVLegacy-DragonKnight',
+      'Jodagon_Drago-DragonKnight',
+      'Khanoz6181Joescatgirl-Necromancer',
+      'LordDoom-Sorcerer',
+      'Nezzy-NightBlade',
+      'PvXGamer(PC-NA)-Necromancer',
+      'Quiest-Templar',
+      'Sheep-Sorcerer',
+      'suguyama-DragonKnight',
+      'Taleon_Zero-NightBlade',
+      'Worldhop_Ur-DragonKnight',
+      'Zahmbi-Necromancer',
+      'Zass-Warden',
+      'Ziggie-Necromancer',
     ];
 
     // this.rate = [
@@ -165,7 +173,7 @@ export class JudgeComponent {
   }
 
   fetchRatingsData() {
-    const endpoint = 'http://127.0.0.1:8000/judge/fetch_data',
+    const endpoint = 'http://52.66.4.131/api/judge/fetch_data',
       reqBody = { judge_username: this.judgeUsername };
 
     this.http.post(endpoint, reqBody).subscribe((res) => {
@@ -174,7 +182,7 @@ export class JudgeComponent {
   }
 
   saveRatingsData() {
-    const endpoint = 'http://127.0.0.1:8000/judge/save_data',
+    const endpoint = 'http://52.66.4.131/api/judge/save_data',
       reqBody = this.ratingsData;
     reqBody['judge'] = this.judgeUsername;
 
@@ -200,7 +208,7 @@ export class JudgeComponent {
   }
 
   login(username, password) {
-    const loginURL = 'http://127.0.0.1:8000/judge/login';
+    const loginURL = 'http://52.66.4.131/api/judge/login';
 
     this.body = { username: username, password: password };
 
