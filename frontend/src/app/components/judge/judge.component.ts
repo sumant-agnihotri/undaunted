@@ -46,10 +46,12 @@ export class JudgeComponent {
     this.danger = 'danger';
 
     this.subs = [
+      '+DaWasef-Necromancer',
       '+AlekWithK-Templar',
       'Ancano-Necromancer',
       'Autumn_Equinox-NightBlade',
       'ceregorn_eso-Sorcerer',
+      'Cocoaphonic-Warden',
       'daerwynn-Sorcerer',
       'Fiyero-Necromancer',
       'FVLegacy-DragonKnight',
@@ -59,6 +61,7 @@ export class JudgeComponent {
       'Nezzy-NightBlade',
       'PvXGamer(PC-NA)-Necromancer',
       'Quiest-Templar',
+      'Sirpzy-Sorcerer',
       'Sheep-Sorcerer',
       'suguyama-DragonKnight',
       'Taleon_Zero-NightBlade',
